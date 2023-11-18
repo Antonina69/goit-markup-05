@@ -52,8 +52,21 @@
     <main >
       <section class="section hero">
         <div class="container">
-       <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-    <button class="hero-button">Замовити послугу</button>
+        <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
+     <button data-modal-open class="hero-button">Замовити послугу</button>
+       <div  class="backdrop is-hidden" data-modal>
+        <div class="modal-wrapper">
+          <form class="modal"></form>
+          <button data-modal-close class="modal-button">
+            <svg class="icon-close-modal" width="18" height="18">
+              <use href="./images/sprite.svg#icon-close-modal">
+
+              </use>
+            </svg>
+          </button>
+        </div>
+            
+          </div>
   </div>
 </section>
            
@@ -140,6 +153,8 @@
             width="370"
             height="294"
           />
+          <p class="p-directions">Десктопні додатки</p>
+
         </li>
         <li class="li-section-directions">
           <img class="image"
@@ -148,6 +163,7 @@
             width="370"
             height="294"
           />
+          <p class="p-directions">Мобільні додатки</p>
         </li>
         <li class="li-section-directions">
           <img class="image"
@@ -156,7 +172,9 @@
             width="370"
             height="294"
           />
+           <p class="p-directions">Дизайнерські рішення</p>
         </li>
+       
       </ul>
       </div>
     </section>
@@ -528,5 +546,8 @@
     </div>
       
     </footer>
+    <script src="./js/modal.js">
+  </script>
   </body>
+  
 </html>

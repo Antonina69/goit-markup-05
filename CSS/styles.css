@@ -7,7 +7,6 @@
     --color-bg-dark-transparent: #2F303A66;
     --color-light: #FFF;
     --color-logo: #000;
-    --color-link: #2196F3;
     --color-button: #188CE8;
     --color-bg-light: #F5F4FA;
     --border-color: #EEEEEE;
@@ -97,6 +96,7 @@ color: var(--color-brand);
 }
 
 .header-link {
+        position: relative;
         display: block;
         padding: 32px 0;
         font-weight: 500;
@@ -106,16 +106,25 @@ color: var(--color-brand);
         color: var(--color-primary);
 }
 .header-link:hover,
-.header-link:focus
+.header-link:focus,
+.current
  {
-color: var(--color-link);
+color: var(--color-brand);
 }
-.current {
-        font-weight: 500;
-        line-height: 1.14;
-        letter-spacing: 0.02em;
-        text-align: left;
+.header-link:hover::after, 
+.header-link:focus::after,
+.header-link.current::after
+{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 4px;
         color: var(--color-brand);
+        border-radius: 2px;
+
 }
 .header-contacts-ul {
         display: flex;
@@ -193,6 +202,7 @@ margin-right: 8px;
 }
 
 .hero {
+       
         max-width: 1600px;
         text-align: center;
         padding: 200px 0; 
@@ -231,10 +241,58 @@ margin-right: 8px;
         background-color: var(--color-brand);
         border: none;
         color: var(--color-light);
+        cursor: pointer;
 }
 .hero-button:hover,
 .hero-button:focus {
         background-color: var(--color-button);
+}
+
+.backdrop {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000033;
+       
+
+}
+.backdrop.is-hidden {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+}
+.modal-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        transform: translate(-50%, -50%);
+        width: 528px;
+        height: 581px;
+        background-color: #FFF;
+        border-radius: 4px;
+}
+.modal-button {
+position: absolute;
+top: 10px;
+right: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0;
+width: 30px;
+height: 30px;
+cursor: pointer;
+border-radius: 50%;
+background-color: #FFF;
+border: 1px solid #0000001A;
+
+
+}
+.icon-close-modal {
+      fill: #000000;
 }
 
 .ul-projects {
@@ -263,6 +321,7 @@ margin-right: 8px;
         border-top: none;
 }
 .projects-link {
+        position: relative;
         display: block;
        
         
@@ -273,8 +332,37 @@ box-shadow: 1px 4px 6px 0px #00000029,
  0px 4px 4px 0px #0000000F,
  0px 1px 1px 0px #0000001F;
 }
+.thumb {
+        position: relative;
+        display: block;
+        width: 370px;
+        height: 294px;
+        overflow: hidden;
+}
+.overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2196F3E5;
+        padding: 63px 24px;
 
-
+        transform: translatey(100%);
+        transition: transform 250ms ease-in-out;
+}
+.p-overlay {
+        
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 28px;
+                letter-spacing: 0.03em;
+                text-align: left;
+                color: #FFF;
+}
+.projects-link:hover .overlay {
+        transform: translatey(0);
+}
 .title-projects {
         margin-bottom: 4px;
         font-size: 18px;
@@ -367,10 +455,28 @@ box-shadow: 1px 4px 6px 0px #00000029,
        
 }
 .li-section-directions {
+        position: relative;
         margin-right: 30px;
 }
 .li-section-directions:last-child {
         margin-right: 0;
+}
+.p-directions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        padding: 27px;
+        width: 100%;
+         font-size: 14px;
+         font-weight: 700;
+                line-height: 16px;
+                letter-spacing: 0.03em;
+                text-align: center;
+                text-transform: uppercase;
+                color: var(--color-light);
+                background-color: #2F303ACC;
+
 }
 .image {
         display: block;
